@@ -94,6 +94,7 @@ Consultar configuración:
 git config --list
 ```
 
+
 Eliminar configuración:
 
 ```bash
