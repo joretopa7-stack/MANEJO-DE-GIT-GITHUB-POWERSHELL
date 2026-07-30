@@ -101,28 +101,6 @@ Aprender a utilizar Git y GitHub como herramientas profesionales para:
 - SSH.
 - GitHub Actions básico.
 
----
-
-# 📂 Estructura del módulo
-
-```text
-Git-GitHub/
-
-│
-├── README.md
-│
-├── fundamentos/
-│
-├── comandos/
-│
-├── ramas/
-│
-├── buenas-practicas/
-│
-└── ejemplos/
-```
-
----
 
 # 📈 Nivel de aprendizaje
 
