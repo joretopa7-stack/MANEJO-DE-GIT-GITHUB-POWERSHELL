@@ -107,28 +107,6 @@ Esta guía busca desarrollar conocimientos aplicables a:
 - Trabajo colaborativo.
 - Ambientes reales de desarrollo.
 
----
-
-# 📂 Estructura del repositorio
-
-```text
-Guia-Conocimientos-ADSO/
-
-│
-├── README.md
-│
-├── Git-GitHub/
-│
-├── Terminal/
-│
-├── PowerShell/
-│
-├── Buenas-Practicas/
-│
-└── Recursos/
-```
-
----
 
 # 📝 Estado del proyecto
 
