@@ -1,6 +1,6 @@
-# 🚀 Git y GitHub para un Tecnólogo ADSO Junior Competitivo
+# Git y GitHub para un Tecnólogo ADSO Junior Competitivo
 
-## 📌 Descripción
+## Descripción
 
 Este documento contiene los conocimientos fundamentales y profesionales que debe manejar un **Tecnólogo en Análisis y Desarrollo de Software (ADSO) con perfil Junior Competitivo** en el uso de **Git y GitHub**.
 
@@ -8,11 +8,14 @@ El objetivo no es memorizar comandos, sino comprender el flujo de trabajo profes
 
 Un desarrollador Junior competitivo debe ser capaz de:
 
-- Gestionar versiones del código.
-- Trabajar con ramas.
-- Colaborar con otros desarrolladores.
-- Mantener repositorios organizados.
-- Aplicar buenas prácticas de desarrollo.
+* Gestionar versiones del código.
+* Trabajar con ramas locales y remotas.
+* Sincronizar cambios con GitHub.
+* Descargar y trabajar con ramas remotas.
+* Colaborar con otros desarrolladores.
+* Mantener repositorios organizados.
+* Resolver conflictos.
+* Aplicar buenas prácticas de desarrollo.
 
 ---
 
@@ -23,19 +26,21 @@ Un desarrollador Junior competitivo debe ser capaz de:
 3. Creación y administración de repositorios
 4. Flujo profesional de trabajo
 5. Manejo de ramas
-6. Estrategia profesional de ramas
-7. Merge y conflictos
-8. Trabajo con GitHub
-9. Pull Requests
-10. Issues
-11. Archivo .gitignore
-12. README profesional
-13. Historial y recuperación
-14. Deshacer cambios
-15. Buenas prácticas
-16. Git avanzado
-17. Aplicación en proyectos ADSO
-18. Evaluación del nivel Junior
+6. Ramas remotas y sincronización
+7. Estrategia profesional de ramas
+8. Merge y conflictos
+9. Trabajo con GitHub
+10. Pull Requests
+11. Issues
+12. Archivo `.gitignore`
+13. README profesional
+14. Historial y recuperación
+15. Deshacer cambios
+16. Buenas prácticas
+17. Git avanzado
+18. Aplicación en proyectos ADSO
+19. Evaluación del nivel Junior
+20. Flujo profesional completo
 
 ---
 
@@ -43,35 +48,38 @@ Un desarrollador Junior competitivo debe ser capaz de:
 
 ## ¿Qué es Git?
 
-Git es un sistema de control de versiones distribuido que permite:
+Git es un **sistema de control de versiones distribuido** que permite:
 
-- Registrar cambios realizados en el código.
-- Recuperar versiones anteriores.
-- Trabajar en equipo.
-- Mantener historial del proyecto.
-- Comparar modificaciones.
+* Registrar cambios realizados en el código.
+* Recuperar versiones anteriores.
+* Trabajar en equipo.
+* Mantener un historial del proyecto.
+* Comparar modificaciones.
+* Trabajar con ramas.
+* Integrar diferentes versiones del código.
 
-Ejemplo de definición profesional:
+### Definición profesional
 
-> Git permite gestionar el historial del código fuente mediante versiones y ramas, facilitando la colaboración entre desarrolladores.
+> Git permite gestionar el historial del código fuente mediante commits y ramas, facilitando la colaboración, trazabilidad y control de versiones durante el desarrollo de software.
 
 ---
 
 # Git vs GitHub
 
-| Git | GitHub |
-|---|---|
-| Sistema de control de versiones | Plataforma de alojamiento de código |
-| Funciona localmente | Servicio en la nube |
-| Maneja commits y ramas | Maneja repositorios remotos, PR e Issues |
-| No necesita internet | Facilita colaboración |
+| Git                                       | GitHub                                                |
+| ----------------------------------------- | ----------------------------------------------------- |
+| Sistema de control de versiones           | Plataforma para alojar y colaborar sobre repositorios |
+| Funciona localmente                       | Servicio remoto en la nube                            |
+| Maneja commits y ramas                    | Aloja repositorios remotos                            |
+| Puede funcionar sin Internet              | Facilita la colaboración en línea                     |
+| Permite trabajar con repositorios locales | Permite Pull Requests, Issues, revisiones, etc.       |
 
-Ejemplo:
+### Concepto sencillo
 
-```
-Git = Controla versiones del código
+```text
+Git = Controla las versiones del código
 
-GitHub = Lugar donde compartes y colaboras
+GitHub = Aloja y permite colaborar con el código
 ```
 
 ---
@@ -85,7 +93,7 @@ git config --global user.name "Nombre"
 ```
 
 ```bash
-git config --global user.email "correo"
+git config --global user.email "correo@example.com"
 ```
 
 Consultar configuración:
@@ -94,6 +102,15 @@ Consultar configuración:
 git config --list
 ```
 
+Consultar una configuración específica:
+
+```bash
+git config user.name
+```
+
+```bash
+git config user.email
+```
 
 Eliminar configuración:
 
@@ -107,15 +124,16 @@ git config --global --unset user.email
 
 También se debe conocer:
 
-- Tokens de GitHub.
-- SSH Keys.
-- Autenticación segura.
+* Tokens de GitHub.
+* SSH Keys.
+* Autenticación segura.
+* Configuración de credenciales.
 
 ---
 
 # 3. Crear y administrar repositorios
 
-## Inicializar repositorio
+## Inicializar un repositorio
 
 ```bash
 git init
@@ -123,9 +141,15 @@ git init
 
 Convierte una carpeta normal en un repositorio Git.
 
+Después:
+
+```bash
+git status
+```
+
 ---
 
-## Clonar repositorio
+## Clonar un repositorio
 
 ```bash
 git clone URL
@@ -139,37 +163,34 @@ git clone https://github.com/usuario/proyecto.git
 
 Esto:
 
-- Descarga el código.
-- Descarga historial.
-- Crea conexión con GitHub.
+* Descarga el código.
+* Descarga el historial.
+* Configura el repositorio local.
+* Crea normalmente el remoto `origin`.
+
+Verificar el remoto:
+
+```bash
+git remote -v
+```
 
 ---
 
 # 4. Flujo profesional de trabajo
 
-Flujo básico:
+El flujo básico es:
 
-```
+```text
 Modificar código
-
-        ↓
-
+       ↓
 git status
-
-        ↓
-
+       ↓
 git add
-
-        ↓
-
+       ↓
 git commit
-
-        ↓
-
+       ↓
 git push
-
-        ↓
-
+       ↓
 GitHub
 ```
 
@@ -183,15 +204,16 @@ git status
 
 Permite identificar:
 
-- Archivos nuevos.
-- Archivos modificados.
-- Archivos preparados.
+* Archivos nuevos.
+* Archivos modificados.
+* Archivos eliminados.
+* Archivos preparados para commit.
 
 ---
 
 ## Agregar cambios
 
-Todos:
+Todos los cambios:
 
 ```bash
 git add .
@@ -207,24 +229,19 @@ git add archivo.py
 
 ## Crear commits profesionales
 
-Ejemplo:
-
 ```bash
 git commit -m "feat: crear endpoint usuarios"
 ```
 
 Tipos recomendados:
 
-```
-feat     Nueva funcionalidad
-
-fix      Corrección de errores
-
-docs     Documentación
-
-test     Pruebas
-
-refactor Mejoras internas
+```text
+feat      Nueva funcionalidad
+fix       Corrección de errores
+docs      Documentación
+test      Pruebas
+refactor  Mejoras internas del código
+chore     Tareas de mantenimiento
 ```
 
 Ejemplos:
@@ -237,21 +254,35 @@ git commit -m "feat: agregar login"
 git commit -m "fix: corregir conexión BD"
 ```
 
+```bash
+git commit -m "docs: actualizar README"
+```
+
 ---
 
 # 5. Manejo de ramas
 
-Las ramas permiten desarrollar funcionalidades sin afectar la versión estable.
+Las ramas permiten desarrollar funcionalidades sin afectar directamente la versión estable.
 
-## Ver ramas
+## Ver ramas locales
 
 ```bash
 git branch
 ```
 
+Ejemplo:
+
+```text
+* main
+  develop
+  feature/login
+```
+
+El `*` indica la rama actual.
+
 ---
 
-## Crear rama
+## Crear una rama
 
 ```bash
 git branch feature/login
@@ -259,96 +290,437 @@ git branch feature/login
 
 ---
 
-## Crear y cambiar rama
+## Crear y cambiar a una rama
+
+Forma moderna:
 
 ```bash
 git switch -c feature/login
 ```
 
+También existe la forma clásica:
+
+```bash
+git checkout -b feature/login
+```
+
 ---
 
-## Cambiar rama
+## Cambiar de rama
+
+Forma moderna:
 
 ```bash
 git switch main
 ```
 
----
-
-## Eliminar rama
+Forma clásica:
 
 ```bash
-git branch -d nombre-rama
+git checkout main
 ```
 
 ---
 
-# 6. Estrategia profesional de ramas
+## Eliminar una rama local
+
+```bash
+git branch -d feature/login
+```
+
+Si Git no permite eliminarla porque tiene cambios no fusionados:
+
+```bash
+git branch -D feature/login
+```
+
+⚠️ `-D` fuerza la eliminación, por lo que debe utilizarse con cuidado.
+
+---
+
+# 6. Ramas remotas y sincronización
+
+Esta parte es **fundamental cuando se trabaja en equipo**.
+
+Una rama puede existir:
+
+```text
+LOCAL
+feature/login
+```
+
+o remotamente:
+
+```text
+REMOTA
+origin/feature/login
+```
+
+---
+
+## Ver ramas remotas
+
+```bash
+git branch -r
+```
 
 Ejemplo:
 
+```text
+origin/main
+origin/develop
+origin/feature/login
+origin/feature/usuarios
 ```
+
+`origin` normalmente representa el repositorio remoto principal.
+
+---
+
+## Ver todas las ramas
+
+Para ver ramas locales y remotas:
+
+```bash
+git branch -a
+```
+
+Ejemplo:
+
+```text
+* main
+  develop
+  feature/login
+  remotes/origin/main
+  remotes/origin/develop
+  remotes/origin/feature/login
+```
+
+---
+
+# Actualizar información del repositorio remoto
+
+## `git fetch`
+
+```bash
+git fetch
+```
+
+Descarga información nueva del repositorio remoto **sin integrar automáticamente los cambios en tu rama actual**.
+
+---
+
+## `git fetch --all`
+
+```bash
+git fetch --all
+```
+
+Actualiza la información de **todos los repositorios remotos configurados**.
+
+Después:
+
+```bash
+git branch -r
+```
+
+Puedes consultar las ramas remotas disponibles.
+
+---
+
+# 📥 Bajar una rama remota a local
+
+Supongamos que después de:
+
+```bash
+git fetch --all
+```
+
+aparece:
+
+```text
+origin/feature/login
+```
+
+Existen varias formas de crear la rama local.
+
+---
+
+## Método moderno recomendado
+
+```bash
+git switch --track origin/feature/login
+```
+
+Git crea la rama local:
+
+```text
+feature/login
+```
+
+y la conecta con:
+
+```text
+origin/feature/login
+```
+
+---
+
+## Método clásico
+
+```bash
+git checkout --track origin/feature/login
+```
+
+También crea la rama local y establece el seguimiento de la rama remota.
+
+---
+
+## Método explícito
+
+```bash
+git checkout -b feature/login origin/feature/login
+```
+
+Aquí indicamos explícitamente:
+
+```text
+Crear rama local:
+feature/login
+
+Basada en:
+origin/feature/login
+```
+
+---
+
+## Verificar la conexión
+
+Después puedes ejecutar:
+
+```bash
+git branch -vv
+```
+
+Ejemplo:
+
+```text
+* feature/login  a123abc [origin/feature/login] crear login
+  main           b456def [origin/main] actualizar README
+```
+
+Esto permite comprobar qué rama remota está siguiendo cada rama local.
+
+---
+
+# 🔄 Flujo completo para bajar una rama remota
+
+Este proceso es importante memorizarlo:
+
+```bash
+git status
+```
+
+```bash
+git fetch --all
+```
+
+```bash
+git branch -r
+```
+
+Si aparece:
+
+```text
+origin/feature/login
+```
+
+entonces:
+
+```bash
+git switch --track origin/feature/login
+```
+
+Finalmente:
+
+```bash
+git branch
+```
+
+Resultado:
+
+```text
+* feature/login
+  main
+```
+
+---
+
+## Flujo visual
+
+```text
+                    GITHUB
+                       │
+                       │
+                git fetch --all
+                       │
+                       ↓
+              RAMAS REMOTAS
+                       │
+                git branch -r
+                       │
+                       ↓
+           origin/feature/login
+                       │
+                       │
+        git switch --track origin/feature/login
+                       │
+                       ↓
+              RAMA LOCAL
+              feature/login
+```
+
+---
+
+# `fetch` vs `pull`
+
+| Comando           | Función                                              |
+| ----------------- | ---------------------------------------------------- |
+| `git fetch`       | Descarga información del remoto sin integrar cambios |
+| `git fetch --all` | Actualiza información de todos los remotos           |
+| `git pull`        | Descarga cambios y los integra en la rama actual     |
+
+### Ejemplo
+
+```bash
+git fetch --all
+```
+
+Después puedes revisar:
+
+```bash
+git branch -r
+```
+
+Y decidir qué hacer con los cambios.
+
+En cambio:
+
+```bash
+git pull
+```
+
+realiza la descarga y posteriormente intenta integrar los cambios en la rama actual.
+
+---
+
+# 7. Estrategia profesional de ramas
+
+Una estructura habitual puede ser:
+
+```text
 main
-
- |
-
+ │
 develop
-
- |
-
-├── feature/login
-
-├── feature/usuarios
-
-└── feature/pagos
+ │
+ ├── feature/login
+ ├── feature/usuarios
+ ├── feature/mascotas
+ └── feature/citas
 ```
 
 ## Main
 
-Contiene código estable.
+Contiene código estable o preparado para producción.
 
 ## Develop
 
-Integra nuevas funcionalidades.
+Puede utilizarse como rama de integración para nuevas funcionalidades, dependiendo de la estrategia del equipo.
 
 ## Feature
 
 Contiene desarrollos específicos.
 
+Ejemplos:
+
+```text
+feature/login
+feature/usuarios
+feature/mascotas
+feature/citas
+```
+
 ---
 
-# 7. Merge y conflictos
+# 8. Merge y conflictos
 
-Unir cambios:
+## Unir una rama
+
+Por ejemplo, estando en `develop`:
+
+```bash
+git switch develop
+```
+
+Después:
 
 ```bash
 git merge feature/login
 ```
 
-Cuando dos personas modifican la misma línea puede aparecer:
+Esto integra los cambios de:
 
-```
-<<<<<<< HEAD
-
-Mi código
-
-=======
-
-Código compañero
-
->>>>>>> feature
+```text
+feature/login
 ```
 
-Proceso:
+en:
 
-1. Revisar diferencias.
-2. Elegir código correcto.
-3. Guardar cambios.
-4. Crear commit.
+```text
+develop
+```
 
 ---
 
-# 8. Trabajo con GitHub
+# Conflictos
+
+Cuando dos desarrolladores modifican partes incompatibles del mismo código puede producirse un conflicto.
+
+Git puede mostrar:
+
+```text
+<<<<<<< HEAD
+Mi código
+=======
+Código del compañero
+>>>>>>> feature/login
+```
+
+Proceso para resolverlo:
+
+1. Revisar el conflicto.
+2. Determinar qué código debe conservarse.
+3. Modificar el archivo.
+4. Eliminar los marcadores de conflicto.
+5. Guardar el archivo.
+6. Ejecutar `git add`.
+7. Crear el commit correspondiente.
+
+Ejemplo:
+
+```bash
+git add archivo.py
+```
+
+Después:
+
+```bash
+git commit -m "fix: resolver conflicto en autenticación"
+```
+
+---
+
+# 9. Trabajo con GitHub
 
 ## Conectar repositorio remoto
 
@@ -356,15 +728,30 @@ Proceso:
 git remote add origin URL
 ```
 
-Ver conexión:
+Ejemplo:
+
+```bash
+git remote add origin https://github.com/usuario/proyecto.git
+```
+
+---
+
+## Ver repositorios remotos
 
 ```bash
 git remote -v
 ```
 
+Ejemplo:
+
+```text
+origin  https://github.com/usuario/proyecto.git (fetch)
+origin  https://github.com/usuario/proyecto.git (push)
+```
+
 ---
 
-## Subir código
+# Subir código
 
 Primera vez:
 
@@ -378,151 +765,192 @@ Después:
 git push
 ```
 
+Si estás trabajando en una rama:
+
+```bash
+git push -u origin feature/login
+```
+
+Después de configurar el seguimiento:
+
+```bash
+git push
+```
+
 ---
 
-## Descargar cambios
+# Descargar cambios
 
 ```bash
 git pull
 ```
 
+También puedes especificar:
+
+```bash
+git pull origin main
+```
+
 ---
 
-## Obtener información sin mezclar
+# Obtener información sin integrar
 
 ```bash
 git fetch
 ```
 
-Diferencia:
+Todos los remotos:
 
-| Pull | Fetch |
-|-|-|
-| Descarga y mezcla cambios | Solo descarga información |
+```bash
+git fetch --all
+```
+
+Después puedes revisar:
+
+```bash
+git branch -r
+```
 
 ---
 
-# 9. Pull Request
+# 10. Pull Request
 
-Un Pull Request permite solicitar la integración de código.
+Un **Pull Request (PR)** permite solicitar que los cambios realizados en una rama sean revisados antes de integrarse a otra rama.
 
 Flujo:
 
-```
+```text
 Crear rama
-
-↓
-
+     ↓
 Desarrollar
-
-↓
-
-Commit
-
-↓
-
-Push
-
-↓
-
+     ↓
+git add
+     ↓
+git commit
+     ↓
+git push
+     ↓
 Pull Request
-
-↓
-
-Revisión
-
-↓
-
+     ↓
+Code Review
+     ↓
+Aprobación
+     ↓
 Merge
 ```
 
 Beneficios:
 
-- Revisión de código.
-- Control de calidad.
-- Trabajo colaborativo.
+* Revisión de código.
+* Control de calidad.
+* Detección de errores.
+* Trabajo colaborativo.
+* Historial de cambios.
+* Integración controlada.
 
 ---
 
-# 10. GitHub Issues
+# 11. GitHub Issues
 
-Permiten organizar tareas:
+Los Issues permiten organizar tareas y problemas.
 
 Usos:
 
-- Reportar errores.
-- Crear funcionalidades.
-- Organizar trabajo.
+* Reportar errores.
+* Crear funcionalidades.
+* Registrar tareas.
+* Organizar trabajo.
 
 Ejemplo:
 
-```
+```text
 Issue #15
 
-Crear módulo autenticación
+Título:
+Crear módulo de autenticación
 
 Estado:
 En desarrollo
 ```
 
+Una rama puede relacionarse con un Issue:
+
+```text
+Issue #15
+     ↓
+feature/autenticacion
+```
+
 ---
 
-# 11. Archivo .gitignore
+# 12. Archivo `.gitignore`
 
-Evita subir archivos innecesarios.
+El `.gitignore` evita que determinados archivos sean incluidos en el repositorio.
 
-Ejemplo Python:
+## Python
 
-```
+```gitignore
 .env
 venv/
 __pycache__/
 *.pyc
 ```
 
-Ejemplo Node:
+## Node.js
 
-```
+```gitignore
 node_modules/
 .env
 ```
 
 Nunca subir:
 
-- Contraseñas.
-- Tokens.
-- Claves privadas.
-- Datos sensibles.
+* Contraseñas.
+* Tokens.
+* Claves privadas.
+* Variables de entorno reales.
+* Datos sensibles.
+* Archivos temporales.
+* Dependencias que se puedan instalar mediante un gestor de paquetes.
 
 ---
 
-# 12. README profesional
+# 13. README profesional
 
-Todo proyecto debe tener:
+Todo proyecto debería tener una documentación básica.
 
-```
-Proyecto
+Ejemplo:
 
+```text
+PROYECTO/
+│
 ├── README.md
 ├── .gitignore
 ├── src/
 ├── requirements.txt
-└── documentación
+└── documentación/
 ```
 
-Debe incluir:
+El `README.md` debería incluir:
 
-- Descripción.
-- Tecnologías.
-- Instalación.
-- Ejecución.
-- Ejemplos.
+* Nombre del proyecto.
+* Descripción.
+* Objetivo.
+* Tecnologías utilizadas.
+* Requisitos.
+* Instalación.
+* Configuración.
+* Ejecución.
+* Estructura del proyecto.
+* Ejemplos de uso.
+* Autores.
+* Licencia, cuando corresponda.
 
 ---
 
-# 13. Historial y recuperación
+# 14. Historial y recuperación
 
-Ver historial:
+## Ver historial
 
 ```bash
 git log
@@ -534,64 +962,103 @@ Vista resumida:
 git log --oneline
 ```
 
-Comparar cambios:
+Más información visual:
+
+```bash
+git log --oneline --graph --all
+```
+
+---
+
+# Comparar cambios
 
 ```bash
 git diff
 ```
 
+Comparar cambios preparados para commit:
+
+```bash
+git diff --staged
+```
+
+Comparar ramas:
+
+```bash
+git diff main..develop
+```
+
 ---
 
-# 14. Deshacer cambios
+# 15. Deshacer cambios
 
-Quitar del staging:
+## Quitar un archivo del staging
 
 ```bash
 git restore --staged archivo
 ```
 
-Eliminar cambios:
+El archivo **no se elimina**, simplemente deja de estar preparado para el commit.
+
+---
+
+## Descartar cambios de un archivo
 
 ```bash
 git restore archivo
 ```
 
-Modificar último commit:
+⚠️ Esto puede eliminar cambios locales que todavía no hayan sido guardados en un commit.
+
+---
+
+## Modificar el último commit
 
 ```bash
 git commit --amend
 ```
 
+Puede utilizarse para corregir el mensaje o agregar cambios al último commit.
+
 ---
 
-# 15. Buenas prácticas profesionales
+# 16. Buenas prácticas profesionales
 
 Un Junior competitivo debe:
 
-✅ Crear ramas por funcionalidad.
-
-✅ Realizar commits pequeños.
-
-✅ Escribir mensajes claros.
-
-✅ Evitar trabajar directamente en main.
-
-✅ Revisar código antes de hacer push.
-
-✅ Documentar proyectos.
-
-✅ Mantener repositorios organizados.
+* Crear ramas por funcionalidad.
+* Evitar trabajar directamente sobre `main`.
+* Realizar commits pequeños y claros.
+* Utilizar mensajes descriptivos.
+* Revisar `git status` frecuentemente.
+* Revisar los cambios antes de hacer commit.
+* Mantener actualizado el repositorio local.
+* Utilizar Pull Requests cuando el flujo del equipo lo requiera.
+* Resolver conflictos correctamente.
+* Documentar los proyectos.
+* Utilizar `.gitignore`.
+* Nunca subir credenciales.
+* No hacer `git push --force` sin conocer sus consecuencias.
+* Mantener ramas organizadas.
 
 ---
 
-# 16. Git avanzado
+# 17. Git avanzado
 
 ## Git Stash
 
-Guardar cambios temporalmente:
+Permite guardar temporalmente cambios que todavía no quieres convertir en commit.
+
+Guardar:
 
 ```bash
 git stash
+```
+
+Ver los cambios guardados:
+
+```bash
+git stash list
 ```
 
 Recuperar:
@@ -602,124 +1069,536 @@ git stash pop
 
 ---
 
-## Git Rebase
+# Git Rebase
 
-Reorganizar historial:
+Permite reorganizar commits y actualizar una rama tomando como base otra.
+
+Ejemplo:
+
+```bash
+git switch feature/login
+```
 
 ```bash
 git rebase main
 ```
 
+Se debe utilizar con cuidado cuando la rama ya ha sido compartida con otros desarrolladores.
+
 ---
 
-## Git Tags
+# Git Tags
 
-Crear versiones:
+Permiten identificar versiones específicas.
+
+Crear:
 
 ```bash
 git tag v1.0.0
 ```
 
+Ver tags:
+
+```bash
+git tag
+```
+
+Subir un tag:
+
+```bash
+git push origin v1.0.0
+```
+
+También se puede utilizar:
+
+```bash
+git push origin --tags
+```
+
 ---
 
-# 17. Aplicación en proyectos ADSO
+# Git Reset
+
+Permite mover el estado de la rama a otro commit.
+
+Ejemplo:
+
+```bash
+git reset --soft HEAD~1
+```
+
+Existen diferentes modos:
+
+```text
+--soft
+--mixed
+--hard
+```
+
+⚠️ `--hard` puede eliminar cambios locales. Debe utilizarse con cuidado.
+
+---
+
+# Git Remote
+
+Ver remotos:
+
+```bash
+git remote -v
+```
+
+Agregar remoto:
+
+```bash
+git remote add origin URL
+```
+
+Cambiar la URL:
+
+```bash
+git remote set-url origin URL
+```
+
+---
+
+# 18. Aplicación en proyectos ADSO
 
 ## Backend FastAPI
 
 Ejemplo:
 
-```
-api/
-
+```text
+backend/
+│
 ├── app/
-
+│   ├── routers/
+│   ├── models/
+│   ├── schemas/
+│   └── main.py
+│
 ├── requirements.txt
-
 ├── .env.example
-
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-## Frontend
+# Frontend
 
-```
+```text
 frontend/
-
+│
 ├── src/
-
+├── public/
 ├── package.json
+├── .gitignore
+└── README.md
+```
 
-├── README.md
+No se debe subir:
 
-└── .gitignore
+```text
+node_modules/
+.env
 ```
 
 ---
 
-## Bases de datos
+# Bases de datos
 
-No subir:
+No se deberían subir datos reales o sensibles:
 
-```
+```text
 datos_clientes.sql
 ```
 
-Sí subir:
+Puede ser apropiado subir scripts de estructura y datos de prueba, según el proyecto:
 
+```text
+schema.sql
+seed.sql
 ```
-estructura_bd.sql
+
+Por ejemplo:
+
+```text
+database/
+├── schema.sql
+└── seed.sql
 ```
 
 ---
 
-# 🎯 Evaluación de nivel
+# Ejemplo aplicado a Huellitas Saludables
 
-## Junior básico
+Una estructura profesional podría ser:
+
+```text
+HUELLITAS_SALUDABLES/
+│
+├── backend/
+│   ├── src/
+│   ├── requirements.txt
+│   ├── .env.example
+│   └── README.md
+│
+├── frontend/
+│   ├── src/
+│   ├── package.json
+│   └── README.md
+│
+├── database/
+│   ├── schema.sql
+│   └── seed.sql
+│
+├── .gitignore
+└── README.md
+```
+
+Posibles ramas:
+
+```text
+main
+develop
+│
+├── feature/autenticacion
+├── feature/usuarios
+├── feature/mascotas
+├── feature/citas
+└── feature/historia-clinica
+```
+
+---
+
+# 19. Evaluación del nivel Junior
+
+## 🟢 Junior básico
 
 Debe manejar:
 
-- init
-- clone
-- add
-- commit
-- push
-- pull
-- branch
+```text
+git init
+git clone
+git status
+git add
+git commit
+git push
+git pull
+git branch
+```
 
+---
 
-## Junior competitivo
+# 🟡 Junior competitivo
 
 Debe dominar:
 
-- Todo lo anterior.
-- Ramas profesionales.
-- Merge.
-- Resolución de conflictos.
-- Pull Requests.
-- Issues.
-- README.
-- .gitignore.
-- Trabajo colaborativo.
-- Buenas prácticas.
+```text
+git init
+git clone
+git status
+git add
+git commit
+git push
+git pull
 
+git branch
+git branch -r
+git branch -a
 
-## Junior sobresaliente
+git switch
+git checkout
 
-Además:
+git fetch
+git fetch --all
 
-- Git Flow.
-- Rebase.
-- Stash.
-- Tags.
-- SSH.
-- GitHub Actions básico.
+git merge
+git diff
+
+Pull Requests
+Issues
+README
+.gitignore
+
+Resolución de conflictos
+Trabajo colaborativo
+Buenas prácticas
+```
+
+Además, debe saber **descargar una rama remota y convertirla en una rama local**:
+
+```bash
+git fetch --all
+git branch -r
+git switch --track origin/nombre-rama
+```
+
+O mediante la forma clásica:
+
+```bash
+git checkout -b nombre-rama origin/nombre-rama
+```
+
+---
+
+# 🔴 Junior sobresaliente
+
+Además debe conocer:
+
+```text
+Git Flow
+Rebase
+Stash
+Tags
+Reset
+SSH
+GitHub Actions básico
+Code Review
+Convenciones de commits
+Protección de ramas
+```
+
+También debe comprender cuándo **no** utilizar determinadas operaciones, especialmente:
+
+```bash
+git reset --hard
+git push --force
+```
+
+---
+
+# 20. Flujo profesional completo
+
+Este es uno de los flujos que un Junior ADSO debería poder ejecutar sin depender constantemente de otra persona.
+
+## 1. Clonar el proyecto
+
+```bash
+git clone URL
+```
+
+## 2. Entrar al proyecto
+
+```bash
+cd proyecto
+```
+
+## 3. Revisar estado
+
+```bash
+git status
+```
+
+## 4. Actualizar información remota
+
+```bash
+git fetch --all
+```
+
+## 5. Ver ramas disponibles
+
+```bash
+git branch -a
+```
+
+o:
+
+```bash
+git branch -r
+```
+
+## 6. Descargar una rama remota a local
+
+```bash
+git switch --track origin/develop
+```
+
+O:
+
+```bash
+git checkout -b develop origin/develop
+```
+
+## 7. Crear una rama para la funcionalidad
+
+```bash
+git switch -c feature/citas
+```
+
+## 8. Desarrollar
+
+Modificar el código y realizar pruebas.
+
+## 9. Revisar cambios
+
+```bash
+git status
+```
+
+```bash
+git diff
+```
+
+## 10. Preparar cambios
+
+```bash
+git add .
+```
+
+## 11. Crear commit
+
+```bash
+git commit -m "feat: agregar gestión de citas"
+```
+
+## 12. Subir rama
+
+```bash
+git push -u origin feature/citas
+```
+
+## 13. Crear Pull Request
+
+```text
+feature/citas
+       ↓
+Pull Request
+       ↓
+Code Review
+       ↓
+Aprobación
+       ↓
+Merge
+       ↓
+develop
+```
+
+## 14. Actualizar nuevamente el repositorio local
+
+Después de que otros desarrolladores hagan cambios:
+
+```bash
+git fetch --all
+```
+
+Revisar:
+
+```bash
+git branch -r
+```
+
+Y actualizar la rama correspondiente mediante `pull`, `merge` o `rebase`, según el flujo establecido por el equipo.
+
+---
+
+# 🎯 Flujo que debes dominar de memoria
+
+```text
+                    GITHUB
+                       │
+                       ↓
+                git fetch --all
+                       │
+                       ↓
+               git branch -r
+                       │
+                       ↓
+           ¿Qué rama necesito?
+                       │
+                       ↓
+       git switch --track origin/rama
+                       │
+                       ↓
+                 RAMA LOCAL
+                       │
+                       ↓
+                 Desarrollar
+                       │
+                       ↓
+                  git status
+                       │
+                       ↓
+                    git add
+                       │
+                       ↓
+                   git commit
+                       │
+                       ↓
+                    git push
+                       │
+                       ↓
+                PULL REQUEST
+                       │
+                       ↓
+                  CODE REVIEW
+                       │
+                       ↓
+                     MERGE
+```
 
 ---
 
 # ✅ Conclusión
 
-Un Tecnólogo ADSO que domina estos conceptos tiene la capacidad de integrarse en un equipo profesional de desarrollo, trabajar con metodologías reales y mantener proyectos organizados utilizando herramientas estándar de la industria.
+Un Tecnólogo ADSO con perfil **Junior Competitivo** no debe limitarse a conocer `git add`, `git commit` y `git push`.
 
-**Git no es solamente guardar código; es una herramienta para colaborar, controlar calidad y construir software profesional.**
+Debe comprender el ciclo completo:
+
+```text
+Repositorio local
+       ↕
+Ramas locales
+       ↕
+Ramas remotas
+       ↕
+GitHub
+       ↕
+Pull Requests
+       ↕
+Code Review
+       ↕
+Merge
+```
+
+Especialmente debe saber diferenciar:
+
+```bash
+git branch
+```
+
+**Ramas locales**
+
+```bash
+git branch -r
+```
+
+**Ramas remotas**
+
+```bash
+git branch -a
+```
+
+**Todas las ramas**
+
+```bash
+git fetch --all
+```
+
+**Actualizar información de los remotos**
+
+```bash
+git switch --track origin/rama
+```
+
+**Crear una rama local siguiendo una rama remota**
+
+y la forma clásica:
+
+```bash
+git checkout -b rama origin/rama
+```
+
+**Crear explícitamente una rama local basada en una rama remota.**
+
+> **Git no es solamente guardar código; es una herramienta para controlar versiones, colaborar, revisar cambios, mantener trazabilidad y construir software de manera profesional.**
